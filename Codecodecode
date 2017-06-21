@@ -1,0 +1,52 @@
+var specialCharacters = ['@', '!', '&', '%', '*'];
+
+var hasUpperCase = function hasUpperCase(input) {
+    for (i = 0; i < input.length; i++) {
+      if (input[i] === input[i].toUpperCase()) {
+        return true;
+       };
+    };
+};
+
+var hasLowercase = function hasLowercase(input) {
+   for (i = 0; i < input.length; i++) {
+     if (input[i] === input[i].toLowerCase()) {
+       return true;
+     };
+   };
+};
+
+var isLongEnough = function(input) {
+  if (input.length >= 8) {
+  return true;
+
+	};
+};
+
+var hasSpecialCharacter = function hasSpecialCharacter(input) {
+  for (i = 0; i < input.length; i++) {
+    for (j = 0; j < specialCharacters.length; j++) {
+      if (input[i] === specialCharacters[j]) {
+      return true;
+      };
+    };
+  };
+};
+  
+  function isPasswordValid(input) {
+  if (hasUpperCase(input) && hasLowercase(input) && isLongEnough(input) && hasSpecialCharacter(input)) {
+    console.log('password is valid'); };
+    if (!hasUpperCase(input)) {
+      console.log('password needs a capital letter');  };
+  	if (!hasLowercase(input)) {
+			console.log('password needs a lower case letter'); };      
+    if (!isLongEnough(input)) {
+      console.log('password must be 8 or more characters'); };
+    if (!hasSpecialCharacter(input)) {
+      console.log('password must have special characters' + specialCharacters);
+    };
+    
+  	};
+
+
+isPasswordValid('Hlaa@o');
